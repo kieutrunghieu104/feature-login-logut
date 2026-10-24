@@ -3,6 +3,8 @@ import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import env from "./config/env.js";
+import notFound from "./middlewares/notFound.js";
+import errorHandler from "./middlewares/errorHandler.js";
 
 const app = express();
 // global middlewares
@@ -24,5 +26,8 @@ app.get("/api/health", (req, res) => {
     message: "API is running",
   })
 });
+
+app.use(notFound);
+app.use(errorHandler);
 
 export default app;
