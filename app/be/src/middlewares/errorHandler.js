@@ -4,7 +4,7 @@ const errorHandler = (err, req, res, next) => {
   console.log(error);
   const message = error.message;
   const statusCode = error.statusCode;
-  const details = error.details;
+  const details = error.details ?? [];
   const response = {
     success: false,
     message,
