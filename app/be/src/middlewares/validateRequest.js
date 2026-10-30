@@ -11,7 +11,7 @@ const validationRequest = (schema) => (req, res, next) => {
       field: issue.path.join("."),
       message: issue.message,
     }));
-    return next(new AppError("Dữ liệu đầu vào không hợp lệ", 404, details));
+    return next(new AppError("Dữ liệu đầu vào không hợp lệ", 400, details));
   };
   req.validated = result.data;
   next();
